@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0f;
+  --color-card-bg: rgba(20, 20, 35, 0.7);
+  --color-primary: #00f5ff;
+  --color-secondary: #7c3aed;
+  --color-text: #e0e0e0;
+  
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-[#e0e0e0] font-sans antialiased overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[rgba(20,20,35,0.7)] backdrop-blur-md border border-white/10;
+  }
+  .glass-card {
+    @apply bg-[rgba(20,20,35,0.7)] backdrop-blur-lg border border-white/10 rounded-[24px];
+  }
+  .glass-nav {
+    @apply bg-[#0a0a0f]/80 backdrop-blur-[10px] border-b border-white/5;
+  }
+  .section-title-line {
+    @apply flex items-center gap-2.5 text-[0.8rem] uppercase tracking-[2px] text-primary mb-3;
+  }
+  .section-title-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0, 245, 255, 0.2);
+  }
+  .stat-box {
+    @apply bg-white/[0.03] border border-white/5 p-3 rounded-xl;
+  }
+  .skill-pill {
+    @apply bg-white/5 border border-white/10 py-1.5 px-3.5 rounded-full text-[0.8rem] text-white;
+  }
+  .project-card {
+    @apply bg-[rgba(20,20,35,0.7)] border border-white/10 rounded-2xl p-4 md:p-5 relative transition-colors duration-300 hover:border-primary;
+  }
+  .btn-primary {
+    @apply bg-primary text-black px-5 py-2.5 rounded-lg text-[0.85rem] font-semibold transition-colors;
+  }
+  .btn-secondary {
+    @apply bg-transparent border border-white/20 text-white px-5 py-2.5 rounded-lg text-[0.85rem] font-semibold transition-colors;
+  }
+  .contact-card-bg {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(0, 245, 255, 0.1));
+    @apply border border-white/10 rounded-[20px];
+  }
+  .text-glow-primary {
+    text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+  }
+  .text-glow-secondary {
+    text-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+  }
+  .box-glow-primary {
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f5ff;
+}
